@@ -8,10 +8,11 @@ from scipy.interpolate import interp1d
 import dianatools
 
 # settings
+datdir = '/scratch/zdl3gk/data/dianaOpacResults'
 gtag = [0.1, 1, 10, 50, 100, 150, 200, 300, 500, 1000]
 rundir = []
 for ii in gtag:
-    rundir.append('a0.01_%.2f_3.5'%ii)
+    rundir.append(os.path.join(datdir, 'a0.01_%.2f_3.5/'%ii))
 
 pltwav = [850, 1300, 2600]
 

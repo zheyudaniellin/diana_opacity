@@ -4,15 +4,18 @@ import numpy as np
 import dianatools
 import matplotlib.pyplot as plt
 import pdb
+import os
 
 # settings
+datdir = '/scratch/zdl3gk/data/dianaOpacResults'
 collect = True 	# true to collect into one set, else separate them. If collected, the opacity files are stored into the current directory
 
-outputdir = 'run1/' # if collect=True
+outputdir = datdir + 'run1/' # if collect=True
 
 # the directories with diana opacities
 opacdir = ['a0.01_0.10_3.5/', 'a0.01_10.00_3.5/']
 #opacdir = ['a0.01_%.2f_3.5/'%ig for ig in [0.1, 1, 10, 50, 100, 150, 200, 300, 500, 1000]]
+opacdir = [os.path.join(datdir, ii) for ii in opacdir]
 
 ext = ['0.1', '10']
 #ext = ['avg' for ii in opacdir]

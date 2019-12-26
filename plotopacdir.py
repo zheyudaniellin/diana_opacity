@@ -3,12 +3,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 import zylconst
+import os
 
+datdir = '/scratch/zdl3gk/data/dianaOpacResults'
 #rundir = ['a0.01_0.10_3.5/', 'a0.01_1000.00_3.5/']
 gtag = [0.1, 1, 10, 50, 100, 150, 200, 300, 500, 1000]
 rundir = []
 for ii in gtag:
-    rundir.append('a0.01_%.2f_3.5/'%ii)
+    rundir.append(os.path.join(datdir, 'a0.01_%.2f_3.5/'%ii))
 
 nrundir = len(rundir)
 

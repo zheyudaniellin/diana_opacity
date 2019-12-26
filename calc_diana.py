@@ -19,6 +19,7 @@ fmax = 0.8
 
 parfname = 'parfile.inp'
 dirfmt = 'a%.2f_%.2f_%.1f'
+datdir = '/scratch/zdl3gk/data/dianaOpacResults'
 
 # grid of parameters
 aminaxis = np.array([0.01], dtype=np.float64)
@@ -55,11 +56,15 @@ for ii in range(namin):
             raise ValueError('output does not exist: command = %s'%com)
 
         # create a parameter file for log purposes
-        dianatools.writePar(parfname, lmin, lmax, nlam,
-                 amin, amax, apow, na,
-                 fcarbon, Vcarbon, porosity, fmax)
+        if datdir is not None:
+            parfname = os.path.join(datdir, parfname)
+            dianatools.writePar(parfname, lmin, lmax, nlam,
+                     amin, amax, apow, na,
+                     fcarbon, Vcarbon, porosity, fmax)
 
         # move the data
         dirname = dirfmt%(amin, amax, apow)
+        if datdir is not None:
+            dirname = os.path.join(datdir, dirname)
         os.system('mkdir '+dirname)
         os.system('mv particle.dat %s %s'%(parfname, dirname))
