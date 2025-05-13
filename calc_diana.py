@@ -18,15 +18,15 @@ porosity = 0.25
 fmax = 0.8
 
 parfname = 'parfile.inp'
-dirfmt = 'a%.2f_%.2f_%.1f'
+dirfmt = 'a%.2f_%.2e_%.1f'
 datdir = '/scratch/zdl3gk/data/dianaOpacResults'
 
 # grid of parameters
-aminaxis = np.array([0.01], dtype=np.float64)
+aminaxis = np.array([0.1], dtype=np.float64)
 namin = len(aminaxis)
 
-#amaxaxis = np.geomspace(1e-1, 1e3, num=10, dtype=np.float64)
-amaxaxis=np.array([0.1, 1., 10., 50., 100., 150., 200., 300., 500.,1e3], dtype=np.float64)
+amaxaxis = np.geomspace(1e-1, 1e6, num=24, dtype=np.float64)
+#amaxaxis=np.array([0.1, 1., 10., 50., 100., 150., 200., 300.], dtype=np.float64)
 namax = len(amaxaxis)
 
 # calculate

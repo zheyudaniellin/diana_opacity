@@ -9,12 +9,14 @@ import dianatools
 
 # settings
 datdir = '/scratch/zdl3gk/data/dianaOpacResults'
-gtag = [0.1, 1, 10, 50, 100, 150, 200, 300, 500, 1000]
+#gtag = [0.1, 1, 10, 50, 100, 150, 200, 300, 500, 1000]
+gtag = np.geomspace(1e-1, 1e6, num=24, dtype=np.float64)
+
 rundir = []
 for ii in gtag:
-    rundir.append(os.path.join(datdir, 'a0.01_%.2f_3.5/'%ii))
+    rundir.append(os.path.join(datdir, 'a0.10_%.2e_3.5/'%ii))
 
-pltwav = [850, 1300, 2600]
+pltwav = [850, 1300, 2900, 9098]
 
 dodiffalb = True
 
